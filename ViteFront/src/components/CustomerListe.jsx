@@ -36,7 +36,7 @@ export default function CustomerList({ onSelect }) {
             cursor: "pointer",
           }}
         >
-          <div style={{ fontWeight: 600 }}>{c.raison_sociale}</div>
+          <div style={{ fontWeight: 600 }}>{c}</div>
           <div style={{ fontSize: 14, opacity: 0.8, marginTop: 4 }}>
             {c.produit}
           </div>
