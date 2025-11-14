@@ -6,7 +6,7 @@ export default function ProductList({ onSelect }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/api/products")
+    fetch("http://localhost:8000/api/products")
       .then(async (res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();

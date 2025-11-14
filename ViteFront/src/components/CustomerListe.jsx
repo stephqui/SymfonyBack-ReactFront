@@ -5,43 +5,46 @@ export default function CustomerList({ onSelect }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  /*const fetch =() => {
+    const url = "http://localhost:8000/api/customers"
+    try {
+      const response = await
+
+    }
+  }*/
+  async function getData() {
+    const url = "http://localhost:8000/api/customers";
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      setCustomer(result);
+      //console.log(result);
+      //console.log("resultats : " + result);
+      console.log("result : " + result[12].slug);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
   useEffect(() => {
-    fetch("/api/customers")
-      .then(async (res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
-      .then((data) => setCustomer(data))
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
+    getData();
   }, []);
 
-  console.log("clients : " + customers);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p style={{ color: "crimson" }}>Error: {error}</p>;
-  if (!customers.length) return <p>No products found.</p>;
+  //if (loading) return <p>Loading...</p>;
+  //if (error) return <p style={{ color: "crimson" }}>Error: {error}</p>;
+  //if (!customers.length) return <p>No products found.</p>;
 
   return (
-    <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-      {customers.map((c, i) => (
-        <li
-          key={i}
-          onClick={() => onSelect?.(c)}
-          style={{
-            border: "1px solid #eee",
-            borderRadius: 12,
-            padding: "0.75rem 1rem",
-            marginBottom: "0.75rem",
-            cursor: "pointer",
-          }}
-        >
-          <div style={{ fontWeight: 600 }}>{c}</div>
-          <div style={{ fontSize: 14, opacity: 0.8, marginTop: 4 }}>
-            {c.produit}
-          </div>
-        </li>
+    <div>
+      {customers.map((customer, i) => (
+        <div key={i}>
+          <h3>{customer.slug}</h3>
+          <p>{customer.license}</p>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 }
