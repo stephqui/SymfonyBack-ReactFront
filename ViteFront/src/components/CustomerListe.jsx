@@ -5,15 +5,8 @@ export default function CustomerList({ onSelect }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  /*const fetch =() => {
-    const url = "http://localhost:8000/api/customers"
-    try {
-      const response = await
-
-    }
-  }*/
   async function getData() {
-    const url = "http://localhost:8000/api/customers";
+    const url = "/api/customers";
     try {
       const response = await fetch(url);
       if (!response.ok) {
