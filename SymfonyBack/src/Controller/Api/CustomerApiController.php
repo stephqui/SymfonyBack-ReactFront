@@ -18,8 +18,6 @@ final class CustomerApiController extends AbstractController
     {
         
         $customerList = $clientsRepository->findAllCustomerOrderByName();
-        $data = json_encode($customerList);
-        //$data = ($customerList);
         return $this->json($customerList);
     }
 }

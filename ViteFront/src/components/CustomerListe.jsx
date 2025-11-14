@@ -22,8 +22,6 @@ export default function CustomerList({ onSelect }) {
 
       const result = await response.json();
       setCustomer(result);
-      //console.log(result);
-      //console.log("resultats : " + result);
       console.log("result : " + result[12].slug);
     } catch (error) {
       console.error(error.message);
