@@ -38,13 +38,25 @@ export default function CustomerList({ onSelect }) {
   //if (!customers.length) return <p>No products found.</p>;
 
   return (
-    <div>
-      {customers.map((customer, i) => (
-        <div key={i}>
-          <h3>{customer.slug}</h3>
-          <p>{customer.license}</p>
-        </div>
+    <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+      {customers.map((c, i) => (
+        <li
+          key={i}
+          onClick={() => onSelect?.(c)}
+          style={{
+            border: "1px solid #eee",
+            borderRadius: 12,
+            padding: "0.75rem 1rem",
+            marginBottom: "0.75rem",
+            cursor: "pointer",
+          }}
+        >
+          <div style={{ fontWeight: 600 }}>{c.raison_sociale}</div>
+          <div style={{ fontSize: 14, opacity: 0.8, marginTop: 4 }}>
+            Produit : {c.produit} -- {c.licence}
+          </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
