@@ -1,7 +1,7 @@
 import "./App.css";
 import Content from "./components/content/Content.js";
 import Header from "./components/header/Header.js";
-import Navbar from "./routes/navbar/Navbar.js";
+import Navbar from "./components/navbar/Navbar.js";
 import CustomerList from "./components/CustomerListe.jsx";
 
 function App() {
