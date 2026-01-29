@@ -6,8 +6,8 @@ import CustomerList from "./CustomerListe.jsx";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Mise à jour EBP" },
+    { name: "description", content: "Ma première appli FullStack avec React!" },
   ];
 }
 
