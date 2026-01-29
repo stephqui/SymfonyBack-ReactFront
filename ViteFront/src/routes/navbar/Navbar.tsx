@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <h2>Mise à jour EBP</h2>
+        <h2>Fichier NavBar.tsx - Mise à jour EBP</h2>
       </div>
       <ul className="navbar-menu">
         {navItems.map((item) => (

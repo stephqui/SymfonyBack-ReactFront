@@ -4,7 +4,7 @@ const Content = () => {
   return (
     <>
       <div className="content">
-        <h3>Liste des clients</h3>
+        <h3>Fichier content.tsx Liste des clients</h3>
       </div>
     </>
   );

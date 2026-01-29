@@ -5,6 +5,7 @@ import App from "./App.tsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <div>On commence le fichier main.tsx</div>
     <App />
   </StrictMode>,
 );

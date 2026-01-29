@@ -17,6 +17,7 @@ const Header = () => {
           className="search-input"
         />
       </div>
+      <div>fichier Header.tsx</div>
       <div className="header-actions">
         <button className="icon-button">
           <FaBell />
