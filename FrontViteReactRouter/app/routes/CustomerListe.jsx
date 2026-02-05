@@ -6,9 +6,12 @@ export default function CustomerList({ onSelect }) {
   const [error, setError] = useState(null);
 
   async function getData() {
+    //const baseApi = import.meta.env.VITE_API_URL;
+    //const url = `${baseApi}/api/customers`;
     const url = "/api/customers";
     try {
       const response = await fetch(url);
+      console.log(response);
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
       }
