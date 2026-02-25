@@ -2,6 +2,7 @@ import type { Route } from "./+types/home";
 import Navbar from "./navbar/Navbar";
 import Header from "./header/Header";
 import Content from "./content/Content";
+import "./content/Content.css";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -21,7 +22,8 @@ export default function Home() {
         </div>
         <div className="container">
           <Header />
-          <Content />
+          {/*<Content />*/}
+          Partie qui contient le contenu
         </div>
         {/* We'll add our components here */}
       </div>
