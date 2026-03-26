@@ -9,7 +9,6 @@ export default function CustomerList({ onSelect }) {
     const baseApi = import.meta.env.VITE_API_URL;
     const url = `${baseApi}/api/customers`;
     //const url = "http://localhost:8000/api/customers";
-    console.log("url : " + url);
     try {
       const response = await fetch(url);
       console.log(response);
@@ -19,7 +18,7 @@ export default function CustomerList({ onSelect }) {
 
       const result = await response.json();
       setCustomer(result);
-      console.log("result : " + result[12].slug);
+      console.log("result : " + result[2].slug);
     } catch (error) {
       console.error(error.message);
     }

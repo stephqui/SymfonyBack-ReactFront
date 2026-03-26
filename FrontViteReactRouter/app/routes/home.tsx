@@ -23,7 +23,6 @@ export default function Home() {
         <div className="container">
           <Header />
           <Content />
-          Partie qui contient le contenu
         </div>
         {/* We'll add our components here */}
       </div>

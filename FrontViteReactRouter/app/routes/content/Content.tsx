@@ -6,6 +6,7 @@ const Content = () => {
     <>
       <div className="content">
         <h3>Fichier content.tsx Liste des clients</h3>
+        <h3>On a la fonction "CustomerList.jsx" ci-dessous :</h3>
         <CustomerList onSelect={(c) => setSelected(p)} />
       </div>
     </>
