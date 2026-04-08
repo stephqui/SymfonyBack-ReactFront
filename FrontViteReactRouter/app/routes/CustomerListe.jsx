@@ -21,15 +21,17 @@ export default function CustomerList({ onSelect }) {
       console.log("result : " + result[2].slug);
     } catch (error) {
       console.error(error.message);
+    } finally{
+      setLoading(false);
     }
   }
   useEffect(() => {
     getData();
   }, []);
 
-  //if (loading) return <p>Loading...</p>;
-  //if (error) return <p style={{ color: "crimson" }}>Error: {error}</p>;
-  //if (!customers.length) return <p>No products found.</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p style={{ color: "crimson" }}>Error: {error}</p>;
+  if (!customers.length) return <p>No products found.</p>;
 
   return (
     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
