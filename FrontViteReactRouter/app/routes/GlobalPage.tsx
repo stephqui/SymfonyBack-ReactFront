@@ -1,8 +1,6 @@
 import type { Route } from "./+types/home";
 import Navbar from "./navbar/Navbar";
 import Header from "./header/Header";
-import Content from "./content/Content";
-import "./content/Content.css";
 import { useState } from "react";
 import { Outlet } from "react-router";
 

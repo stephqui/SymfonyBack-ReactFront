@@ -8,7 +8,6 @@ export default function CustomerList({ onSelect }) {
   async function getData() {
     const baseApi = import.meta.env.VITE_API_URL;
     const url = `${baseApi}/api/customers`;
-    //const url = "/api/customers";
     try {
       const response = await fetch(url);
       console.log(response);
@@ -18,18 +17,20 @@ export default function CustomerList({ onSelect }) {
 
       const result = await response.json();
       setCustomer(result);
-      console.log("result : " + result[12].slug);
+      console.log("result : " + result[2].slug);
     } catch (error) {
       console.error(error.message);
+    } finally{
+      setLoading(false);
     }
   }
   useEffect(() => {
     getData();
   }, []);
 
-  //if (loading) return <p>Loading...</p>;
-  //if (error) return <p style={{ color: "crimson" }}>Error: {error}</p>;
-  //if (!customers.length) return <p>No products found.</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p style={{ color: "crimson" }}>Error: {error}</p>;
+  if (!customers.length) return <p>No products found.</p>;
 
   return (
     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>

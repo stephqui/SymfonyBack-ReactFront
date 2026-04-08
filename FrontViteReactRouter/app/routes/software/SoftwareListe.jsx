@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 
-export default function CustomerList({ onSelect }) {
-  const [customers, setCustomer] = useState([]);
+export default function SoftwareList({ onSelect }) {
+  const [softwares, setSoftware] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   async function getData() {
     const baseApi = import.meta.env.VITE_API_URL;
-    const url = `${baseApi}/api/customers`;
-    //const url = "http://localhost:8000/api/customers";
+    const url = `${baseApi}/api/produits`;
     try {
       const response = await fetch(url);
       console.log(response);
@@ -17,40 +16,29 @@ export default function CustomerList({ onSelect }) {
       }
 
       const result = await response.json();
-      setCustomer(result);
+      setSoftware(result);
       console.log("result : " + result[2].slug);
     } catch (error) {
       console.error(error.message);
-    } finally{
+    } finally {
       setLoading(false);
     }
   }
+
   useEffect(() => {
     getData();
   }, []);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p style={{ color: "crimson" }}>Error: {error}</p>;
-  if (!customers.length) return <p>No products found.</p>;
+  if (!softwares.length) return <p>No products found.</p>;
 
   return (
     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-      {customers.map((c, i) => (
-        <li
-          key={i}
-          onClick={() => onSelect?.(c)}
-          style={{
-            border: "1px solid #eee",
-            borderRadius: 12,
-            padding: "0.75rem 1rem",
-            marginBottom: "0.75rem",
-            cursor: "pointer",
-          }}
-        >
-          <div style={{ fontWeight: 600 }}>{c.raison_sociale}</div>
-          <div style={{ fontSize: 14, opacity: 0.8, marginTop: 4 }}>
-            Produit : {c.produit} -- {c.licence}
-          </div>
+      {softwares.map((s, i) => (
+        <li key={i}>
+          <h3>{s.name}</h3>
+          <p>{s.description}</p>
         </li>
       ))}
     </ul>

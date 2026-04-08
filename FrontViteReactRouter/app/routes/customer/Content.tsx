@@ -1,5 +1,7 @@
 import "./Content.css";
-import CustomerList from "../CustomerListe.jsx";
+import CustomerList from "./CustomerListe.jsx";
+
+//Ce fichier ne sert plus à rien.
 
 const Content = () => {
   return (
